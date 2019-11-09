@@ -1,0 +1,14 @@
+-v "C:/questasim64_10.4e/uvm-1.1d/win64/uvm_dpi.dll"
+
++incdir+C:/questasim64_10.4e/verilog_src/uvm-1.1d/src 
+
+qverilog -work work first.sv +define+UVM_NO_DPI +define+UVM_NO_DPI +define+UVM_REGEX_NO_DPI  
+
+qverilog -reportprogress 300 -guimode -work work first.sv "+define+UVM_NO_DPI" "+define+UVM_NO_DPI" "+define+UVM_REGEX_NO_DPI"
+
+vsim -lib work first_sv_unit top -c -do {run -all; quit -sim} -appendlog -l qverilog.log -vopt -prevmsgcount 0,0,0,0 -usestarttime 21,39,22,7,10,119,4,310,0
+
+qverilog -timescale "1ns/1ns" -mfcu +acc=rmb +incdir+../../../../../src +incdir+../sv $TB_HOME/tb_top.sv -R +UVM_TESTNAME=$TEST_NAME
+
+qverilog -work work +incdir+C:/questasim64_10.4e/verilog_src/uvm-1.1d/src +incdir+/home/Lenovo/uvm_example/mem_uvm -timescale "1ns/1ns" -mfcu +acc=rmb design.sv testbench.sv +define+UVM_NO_DPI +define+UVM_NO_DPI +define+UVM_REGEX_NO_DPI -R +UVM_TESTNAME="mem_wr_rd_test"
+
