@@ -72,5 +72,11 @@ module tbench_top;
   initial begin 
     run_test();
   end
-  
+ 
+
+  initial 
+    begin
+       x_check: if (!reset)assert (!$isunknown(DUT.addr)) 
+        else $fatal(" Addr is X at %t",$realtime);  
+    end 
 endmodule

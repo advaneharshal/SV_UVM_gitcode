@@ -1,0 +1,4 @@
+
+qverilog -work work -sv cov.sv +cover=sbt -R -do " coverage save -onexit cov1.ucdb; run -all;exit" ; vcover report -details -html cov1.ucdb
+
+cygstart index.html
