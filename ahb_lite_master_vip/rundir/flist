@@ -1,0 +1,8 @@
+../tb/timescale.sv
++incdir+../tb
++incdir+../tests
++incdir+../dut
+../tb/ahb_pkg.sv
+../tb/ahb_if.sv
+../dut/ahb_slave.v
+../tb/ahb_top.sv
